@@ -1,0 +1,15 @@
+﻿@model IEnumerable<RISWebApp.Models.ProductTable>
+
+@{
+    ViewBag.Title = "All Posts";
+}
+
+<h2 class="home-page-header"> Our Featured Products </h2>
+
+
+@foreach (var item in Model)
+{
+    @Html.Raw(item.Html)
+}
+
+

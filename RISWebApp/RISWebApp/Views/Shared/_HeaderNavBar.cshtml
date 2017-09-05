@@ -1,0 +1,38 @@
+﻿@Html.ActionLink("Reviews In Short", "Index", "Reviews", new { area = "" }, new { @class = "text-center h1" })
+
+
+<nav class="navbar navbar-default page-header" role="navigation">
+    <div class="container-fluid>
+        <div class="navbar-header">
+            @*@Html.ActionLink("Reviews In Short", "Index", "Reviews", new { area = "" }, new { @class = "navbar-brand" })*@
+            @*<a class="navbar-brand" href="#">Reviews In Short</a>*@
+        </div>
+        <ul class="nav navbar-nav">
+            @if (ViewBag.ProductCategories != null)
+            {
+                List<RISWebApp.Models.CategoryProductModel> catProductModelList = (List<RISWebApp.Models.CategoryProductModel>)ViewBag.ProductCategories;
+                foreach (var listItem in catProductModelList)
+                {
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            @listItem.mCategoryName
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            @foreach (var product in listItem.mProduct)
+                            {
+                                @Html.ActionLink(@product.Title,
+                                            "Product",
+                                            "Reviews",
+                                                       new { @id = @product.Id }, null)
+                                @Html.Raw("<br>")
+                            }
+                        </ul>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</nav>
+
+

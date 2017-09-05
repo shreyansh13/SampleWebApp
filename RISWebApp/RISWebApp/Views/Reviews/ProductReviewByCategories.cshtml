@@ -1,0 +1,19 @@
+﻿@model IEnumerable<RISWebApp.Models.ProductTable>
+
+
+
+<h2> @ViewBag.Title </h2>
+
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Raw(item.Html)
+            </div>
+        </div>
+    }
+
+</table>
+
+
